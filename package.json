@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "webpack": "node node_modules/webpack/bin/webpack.js --progress --colors"
+    "webpack": "node node_modules/webpack/bin/webpack.js --progress --colors",
+    "build": "npm run webpack && python manage.py runserver | node server.js"
   },
-  "keywords": [
-  ],
+  "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
@@ -30,7 +30,8 @@
     "react-slick": "^0.15.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.12",
-    "webpack-bundle-tracker": "0.0.93"
+    "webpack": "^2.2.0",
+    "webpack-bundle-tracker": "0.0.93",
+    "webpack-dev-server": "^2.11.0"
   }
 }

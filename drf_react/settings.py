@@ -6,10 +6,11 @@ SECRET_KEY = 'ur%8n=(lj9_2wozggc==^rny8pfwfip41(g4%3ht7$gj7f)l3&'
 
 DEBUG = os.environ.get('DEBUG', False)
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-
+CORS_ORIGIN_ALLOW_ALL = True
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = (
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -24,6 +25,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

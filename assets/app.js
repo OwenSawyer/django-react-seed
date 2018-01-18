@@ -1,24 +1,44 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import { AppContainer } from 'react-hot-loader'
+import { AppContainer } from 'react-hot-loader'
 import Parent from './js/index'
+
+const render = Component => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    document.getElementById('container'),
+  )
+}
+
+render(Parent)
+
+// Webpack Hot Module Replacement API
+if (module.hot) {
+  module.hot.accept('./js/index', () => {
+    render(Parent)
+  })
+}
 //
-// const render = Component => {
-//   ReactDOM.render(
-//     <AppContainer>
-//       <Component />
-//     </AppContainer>,
-//     document.getElementById('container'),
-//   )
-// }
+// ReactDOM.render(<Parent/>, document.getElementById('container'));
+
+// ReactDOM.render(
+//   <AppContainer>
+//     <Parent/>
+//   </AppContainer>,
+//   document.getElementById('container')
+// );
 //
-// render(Parent)
-//
-// // Webpack Hot Module Replacement API
+// // Hot Module Replacement API
 // if (module.hot) {
 //   module.hot.accept('./js/index', () => {
-//     render(Parent)
-//   })
+//     const NextApp = require('./js/index').default;
+//     ReactDOM.render(
+//       <AppContainer>
+//         <NextApp/>
+//       </AppContainer>,
+//       document.getElementById('container')
+//     );
+//   });
 // }
-
-ReactDOM.render(<Parent/>, document.getElementById('container'));
